@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Horario Escolar</title>
   <style>
     body {
@@ -52,6 +52,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       white-space: pre-line;
       line-height: 1.6;
+      font-size: 16px;
     }
     .horario-texto hr {
       border: none;
@@ -73,43 +74,7 @@
   <h1>📚 Horario Escolar</h1>
 
   <div class="horario-texto">
-    ⏳ HORARIO - DÍA EN CURSO ⏳
-
-    ⏰ MATEMÁTICAS IV  
-    👨‍🏫 TRIAS ESPINOZA FREDDY CONCEPCIÓN  
-    🕒 07:00 - 07:50
-
-    ⏰ COMPRENSIÓN Y PRODUCCIÓN DE TEXTOS II  
-    👩‍🏫 NIEBLA VARGAS LOURDES  
-    🕒 07:50 - 08:40
-
-    ⏰ QUÍMICA DEL CARBONO II  
-    👩‍🏫 ROCHA DOMÍNGUEZ MARTHA GUADALUPE  
-    🕒 08:40 - 09:30
-
-    ⏰ BIOLOGÍA BÁSICA IV  
-    👩‍🏫 CAMACHO CASTRO MIRIAM EDITH  
-    🕒 09:30 - 10:20
-
-    <hr>
-    <p class="separator">🔻</p>
-    <hr>
-
-    ✅ FÍSICA IV  
-    👨‍🏫 CASTAÑOS MARTÍNEZ CUAUHTÉMOC  
-    🕒 10:20 - 11:10
-
-    ✅ ECONOMÍA, EMPRESA Y SOCIEDAD  
-    👩‍🏫 ESCAMILLA ASTORGA DORA LUZ  
-    🕒 11:10 - 12:00
-
-    ✅ LÓGICA  
-    👩‍🏫 AMADOR VEGA ROSA ICELA  
-    🕒 12:00 - 12:50
-
-    ✅ LITERATURA I  
-    👩‍🏫 CASTAÑOS MARTÍNEZ MARLEN  
-    🕒 12:50 - 13:40
+    <!-- Aquí se genera el horario dinámico -->
   </div>
 
   <table>
@@ -182,6 +147,69 @@
       </tr>
     </tbody>
   </table>
+
+<script>
+  // Define el horario y materias con sus tiempos (hora de inicio y fin en formato 24h)
+  const materias = [
+    { nombre: "MATEMÁTICAS IV", profesor: "TRIAS ESPINOZA FREDDY CONCEPCIÓN", inicio: "07:00", fin: "07:50" },
+    { nombre: "COMPRENSIÓN Y PRODUCCIÓN DE TEXTOS II", profesor: "NIEBLA VARGAS LOURDES", inicio: "07:50", fin: "08:40" },
+    { nombre: "QUÍMICA DEL CARBONO II", profesor: "ROCHA DOMÍNGUEZ MARTHA GUADALUPE", inicio: "08:40", fin: "09:30" },
+    { nombre: "BIOLOGÍA BÁSICA IV", profesor: "CAMACHO CASTRO MIRIAM EDITH", inicio: "09:30", fin: "10:20" },
+    { nombre: "FÍSICA IV", profesor: "CASTAÑOS MARTÍNEZ CUAUHTÉMOC", inicio: "10:20", fin: "11:10" },
+    { nombre: "ECONOMÍA, EMPRESA Y SOCIEDAD", profesor: "ESCAMILLA ASTORGA DORA LUZ", inicio: "11:10", fin: "12:00" },
+    { nombre: "LÓGICA", profesor: "AMADOR VEGA ROSA ICELA", inicio: "12:00", fin: "12:50" },
+    { nombre: "LITERATURA I", profesor: "CASTAÑOS MARTÍNEZ MARLEN", inicio: "12:50", fin: "13:40" }
+  ];
+
+  // Convierte "HH:MM" a minutos totales desde medianoche
+  function horaAMinutos(horaStr) {
+    const [h, m] = horaStr.split(":").map(Number);
+    return h * 60 + m;
+  }
+
+  // Obtiene la hora actual en minutos desde medianoche
+  function getMinutosActuales() {
+    const ahora = new Date();
+    return ahora.getHours() * 60 + ahora.getMinutes();
+  }
+
+  // Genera el bloque de texto con emojis según estado
+  function generarHorarioDinamico() {
+    const contenedor = document.querySelector(".horario-texto");
+    if (!contenedor) return;
+
+    const ahoraMin = getMinutosActuales();
+
+    let texto = "⏳ HORARIO - DÍA EN CURSO ⏳\n\n";
+
+    materias.forEach((materia, index) => {
+      const inicioMin = horaAMinutos(materia.inicio);
+      const finMin = horaAMinutos(materia.fin);
+      let emoji = "⏳"; // pendiente
+
+      if (ahoraMin >= finMin) {
+        emoji = "✅"; // ya pasó
+      } else if (ahoraMin >= inicioMin && ahoraMin < finMin) {
+        emoji = "▶️"; // en curso
+      }
+
+      texto += `${emoji} ${materia.nombre}\n👨‍🏫 ${materia.profesor}\n🕒 ${materia.inicio} - ${materia.fin}\n\n`;
+
+      // Línea divisoria entre BIOLOGÍA y FÍSICA
+      if (materia.nombre === "BIOLOGÍA BÁSICA IV") {
+        texto += "─────────── 🔻 ───────────\n\n";
+      }
+    });
+
+    contenedor.textContent = texto.trim();
+  }
+
+  // Ejecuta al cargar la página
+  window.onload = generarHorarioDinamico;
+
+  // Actualiza cada minuto para que cambie dinámicamente sin recargar página
+  setInterval(generarHorarioDinamico, 60 * 1000);
+</script>
 
 </body>
 </html>
