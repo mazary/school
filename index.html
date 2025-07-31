@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -97,7 +98,6 @@
 <body>
   <header>
     <img src="vision2025.png" alt="Logo de la UAS" />
-
     <h1>Edgar Domingo - Asesor Académico</h1>
   </header>
 
@@ -118,14 +118,8 @@ En esta página encontrarás no solo recursos y asesorías, sino un compromiso r
 
     <section id="horario">
       <h2>Horario de Clases</h2>
-      <ul>
-        <li>08:00 - 08:40 → Historia 1</li>
-        <li>08:40 - 09:20 → Biología</li>
-        <li>09:20 - 10:00 → Física</li>
-        <li>10:20 - 11:00 → Lenguaje</li>
-        <li>11:00 - 11:40 → Literatura</li>
-        <li>12:40 - 13:20 → Matemáticas</li>
-        <li>13:20 - 14:00 → Filosofía</li>
+      <ul id="listaHorario">
+        <!-- Horario se carga aquí -->
       </ul>
     </section>
 
@@ -157,7 +151,55 @@ En esta página encontrarás no solo recursos y asesorías, sino un compromiso r
   </footer>
 
   <script>
-    const lista = document.getElementById('comentariosLista');
+    const clases = [
+      { horaInicio: '08:00', horaFin: '08:40', materia: 'Historia 1' },
+      { horaInicio: '08:40', horaFin: '09:20', materia: 'Biología' },
+      { horaInicio: '09:20', horaFin: '10:00', materia: 'Física' },
+      { horaInicio: '10:20', horaFin: '11:00', materia: 'Lenguaje' },
+      { horaInicio: '11:00', horaFin: '11:40', materia: 'Literatura' },
+      { horaInicio: '12:40', horaFin: '13:20', materia: 'Matemáticas' },
+      { horaInicio: '13:20', horaFin: '14:00', materia: 'Filosofía' },
+    ];
+
+    function horaAMinutos(hora) {
+      const [h, m] = hora.split(':').map(Number);
+      return h * 60 + m;
+    }
+
+    function actualizarHorario() {
+      const ahora = new Date();
+      const minutosAhora = ahora.getHours() * 60 + ahora.getMinutes();
+      const lista = document.getElementById('listaHorario');
+      lista.innerHTML = '';
+
+      clases.forEach(clase => {
+        const inicioMin = horaAMinutos(clase.horaInicio);
+        const finMin = horaAMinutos(clase.horaFin);
+        let icono = '⏳'; // reloj de arena antes de empezar
+
+        if (minutosAhora >= inicioMin && minutosAhora < finMin) {
+          icono = '➡️'; // clase en curso
+        } else if (minutosAhora >= finMin) {
+          icono = '✅'; // clase terminada
+        }
+
+        const li = document.createElement('li');
+        if (icono === '➡️') {
+          li.innerHTML = `<span style="color: red;">${icono}</span> ${clase.horaInicio} - ${clase.horaFin} → ${clase.materia}`;
+        } else if (icono === '✅') {
+          li.innerHTML = `<span style="color: green;">${icono}</span> ${clase.horaInicio} - ${clase.horaFin} → ${clase.materia}`;
+        } else {
+          li.textContent = `${icono} ${clase.horaInicio} - ${clase.horaFin} → ${clase.materia}`;
+        }
+        lista.appendChild(li);
+      });
+    }
+
+    setInterval(actualizarHorario, 30000);
+    actualizarHorario();
+
+    // Comentarios
+    const listaComentarios = document.getElementById('comentariosLista');
     const comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
     comentariosGuardados.forEach(m => renderComentario(m));
 
@@ -174,9 +216,9 @@ En esta página encontrarás no solo recursos y asesorías, sino un compromiso r
     function renderComentario(texto) {
       const p = document.createElement('p');
       p.textContent = texto;
-      lista.appendChild(p);
+      listaComentarios.appendChild(p);
     }
   </script>
 </body>
 </html>
-<!-- cambio para forzar redeploy -->
+
