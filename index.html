@@ -1,224 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Edgar Domingo – Asesor Académico</title>
-
+  <meta charset="UTF-8">
+  <title>Horario Escolar</title>
   <style>
     body {
-      background-color: #fffde7;
-      color: #1a237e;
+      background-color: #f4f4f4;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
-
-    header {
-      background-color: #1a237e;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      padding: 1.5em 2em;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    header img {
-      width: 130px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-    }
-
-    main {
-      padding: 2em;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section {
-      background-color: #fff9c4;
-      padding: 1.5em;
-      border-radius: 12px;
-      margin-bottom: 2em;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    }
-
-    h1, h2 {
-      margin-top: 0;
-      font-weight: 700;
-    }
-
-    a {
-      color: #1a237e;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    button {
-      padding: 0.5em 1em;
-      background-color: #1a237e;
-      color: #fffde7;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    #comentariosLista p {
-      background: #fff;
-      padding: 0.5em 1em;
-      margin: 0.5em 0;
-      border-left: 4px solid #1a237e;
-    }
-
-    textarea {
-      width: 100%;
-      padding: 0.7em;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      resize: vertical;
-    }
-
-    footer {
+    h1 {
       text-align: center;
-      background-color: #1a237e;
-      color: #fffde7;
-      padding: 1.5em 2em;
-      font-size: 1em;
+      background-color: #303030;
+      color: white;
+      padding: 10px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      background-color: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+    }
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    @media (max-width: 768px) {
+      table {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="vision2025.png" alt="Logo de la UAS" />
-    <h1>Edgar Domingo - Asesor Académico</h1>
-  </header>
 
-  <main>
-    <section id="introduccion">
-      <p>Hola, soy <strong>Edgar Domingo</strong>, tu asesor académico. Estoy aquí para ayudarte en materias como historia, ciencias, biología y literatura. Si tienes dudas o tareas difíciles, juntos las investigaremos y resolveremos. Esta página es para ti, para nosotros.</p>
-    </section>
+  <h1>📚 Horario Escolar</h1>
 
-    <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <p>Soy un apasionado estudiante y asesor académico con un fuerte interés en el desarrollo integral del conocimiento. Mi enfoque se basa en combinar una comprensión profunda de la historia y las ciencias con una sensibilidad hacia las necesidades reales de quienes aprenden. Creo en el poder del aprendizaje colaborativo y en construir espacios donde todos puedan crecer, cuestionar y descubrir.
+  <table>
+    <thead>
+      <tr>
+        <th>🕒 Hora</th>
+        <th>Lunes 🔴</th>
+        <th>Martes 🔴</th>
+        <th>Miércoles 🔴</th>
+        <th>Jueves 🔴</th>
+        <th>Viernes 🔴</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>07:00-07:50 🕒</td>
+        <td>Matemáticas IV – Trias Espinoza ✅</td>
+        <td>Textos II – Niebla Vargas ✅</td>
+        <td>Química II – Rocha Domínguez ✅</td>
+        <td>Física IV – Castaños Martínez ✅</td>
+        <td>Lógica – Amador Vega ✅</td>
+      </tr>
+      <tr>
+        <td>07:50-08:40 🕒</td>
+        <td>Matemáticas IV – Trias Espinoza ✅</td>
+        <td>Textos II – Niebla Vargas ✅</td>
+        <td>Química II – Rocha Domínguez ✅</td>
+        <td>Física IV – Castaños Martínez ✅</td>
+        <td>Lógica – Amador Vega ✅</td>
+      </tr>
+      <tr>
+        <td>08:40-09:30 🕒</td>
+        <td>Biología IV – Camacho Castro ✅</td>
+        <td>Textos II – Niebla Vargas ✅</td>
+        <td>Química II – Rocha Domínguez ✅</td>
+        <td>Física IV – Castaños Martínez ✅</td>
+        <td>Literatura I – Castaños Martínez ✅</td>
+      </tr>
+      <tr>
+        <td>09:30-10:20 🕒</td>
+        <td>Biología IV – Camacho Castro ✅</td>
+        <td>Economía – Escamilla Astorga ✅</td>
+        <td>Química II – Rocha Domínguez ✅</td>
+        <td>Economía – Escamilla Astorga ✅</td>
+        <td>Literatura I – Castaños Martínez ✅</td>
+      </tr>
+      <tr>
+        <td>10:20-11:10 🕒</td>
+        <td>Biología IV – Camacho Castro ✅</td>
+        <td>Economía – Escamilla Astorga ✅</td>
+        <td>Matemáticas IV – Trias Espinoza ✅</td>
+        <td>Economía – Escamilla Astorga ✅</td>
+        <td>Literatura I – Castaños Martínez ✅</td>
+      </tr>
+      <tr>
+        <td>11:10-12:00 🕒</td>
+        <td>Física IV – Castaños Martínez ✅</td>
+        <td>Lógica – Amador Vega ✅</td>
+        <td>Matemáticas IV – Trias Espinoza ✅</td>
+        <td>Textos II – Niebla Vargas ✅</td>
+        <td>Química II – Rocha Domínguez ✅</td>
+      </tr>
+      <tr>
+        <td>12:00-12:50 🕒</td>
+        <td>Física IV – Castaños Martínez ✅</td>
+        <td>Lógica – Amador Vega ✅</td>
+        <td>Matemáticas IV – Trias Espinoza ✅</td>
+        <td>Textos II – Niebla Vargas ✅</td>
+        <td>Química II – Rocha Domínguez ✅</td>
+      </tr>
+    </tbody>
+  </table>
 
-Más allá de los libros, me interesa conectar el saber académico con la vida diaria y los retos actuales. La educación, para mí, es una herramienta vital para transformar no solo nuestro entorno, sino también nuestro pensamiento y nuestra manera de relacionarnos.
-
-En esta página encontrarás no solo recursos y asesorías, sino un compromiso real conmigo mismo y con mis compañeros: aprender, apoyar y avanzar juntos sin falsas pretensiones.
-</p>
-    </section>
-
-    <section id="horario">
-      <h2>Horario de Clases</h2>
-      <ul id="listaHorario">
-        <!-- Horario se carga aquí -->
-      </ul>
-    </section>
-
-    <section id="drive">
-      <h2>Asesorías y Tareas</h2>
-      <p>Todas las tareas, asesorías y guías están en esta carpeta de Drive:</p>
-      <p><a href="https://drive.google.com/drive/folders/1j9v7pfF6XpHF7ePlAslw3KM3E68UMaK_?usp=drive_link" target="_blank">Acceder a Drive</a></p>
-    </section>
-
-    <section id="comentarios">
-      <h2>Comentarios del Salón</h2>
-      <p>Deja tu opinión, queja o mensaje para todos. Esto no se borra, se queda en la página.</p>
-      <textarea id="comentarioInput" placeholder="Escribe aquí tu mensaje..." rows="4"></textarea><br><br>
-      <button onclick="guardarComentario()">Publicar mensaje</button>
-      <div id="comentariosLista"></div>
-    </section>
-
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p><strong>Correo:</strong> <a href="mailto:colvin0001@gmail.com">colvin0001@gmail.com</a></p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/526677988755" target="_blank" rel="noopener noreferrer">667 798 8755</a></p>
-      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/fromalazka" target="_blank" rel="noopener noreferrer">facebook.com/fromalazka</a></p>
-    </section>
-  </main>
-
-  <footer>
-    <p>Creado por <strong>Edgar Domingo</strong> – Universidad Autónoma de Sinaloa (UAS) – 2025</p>
-    <p><em>"Juntos, sin dejar a nadie en el camino."</em></p>
-  </footer>
-
-  <script>
-    const clases = [
-      { horaInicio: '08:00', horaFin: '08:40', materia: 'Historia 1' },
-      { horaInicio: '08:40', horaFin: '09:20', materia: 'Biología' },
-      { horaInicio: '09:20', horaFin: '10:00', materia: 'Física' },
-      { horaInicio: '10:20', horaFin: '11:00', materia: 'Lenguaje' },
-      { horaInicio: '11:00', horaFin: '11:40', materia: 'Literatura' },
-      { horaInicio: '12:40', horaFin: '13:20', materia: 'Matemáticas' },
-      { horaInicio: '13:20', horaFin: '14:00', materia: 'Filosofía' },
-    ];
-
-    function horaAMinutos(hora) {
-      const [h, m] = hora.split(':').map(Number);
-      return h * 60 + m;
-    }
-
-    function actualizarHorario() {
-      const ahora = new Date();
-      const minutosAhora = ahora.getHours() * 60 + ahora.getMinutes();
-      const lista = document.getElementById('listaHorario');
-      lista.innerHTML = '';
-
-      clases.forEach(clase => {
-        const inicioMin = horaAMinutos(clase.horaInicio);
-        const finMin = horaAMinutos(clase.horaFin);
-        let icono = '⏳'; // reloj de arena antes de empezar
-
-        if (minutosAhora >= inicioMin && minutosAhora < finMin) {
-          icono = '➡️'; // clase en curso
-        } else if (minutosAhora >= finMin) {
-          icono = '✅'; // clase terminada
-        }
-
-        const li = document.createElement('li');
-        if (icono === '➡️') {
-          li.innerHTML = `<span style="color: red;">${icono}</span> ${clase.horaInicio} - ${clase.horaFin} → ${clase.materia}`;
-        } else if (icono === '✅') {
-          li.innerHTML = `<span style="color: green;">${icono}</span> ${clase.horaInicio} - ${clase.horaFin} → ${clase.materia}`;
-        } else {
-          li.textContent = `${icono} ${clase.horaInicio} - ${clase.horaFin} → ${clase.materia}`;
-        }
-        lista.appendChild(li);
-      });
-    }
-
-    setInterval(actualizarHorario, 30000);
-    actualizarHorario();
-
-    // Comentarios
-    const listaComentarios = document.getElementById('comentariosLista');
-    const comentariosGuardados = JSON.parse(localStorage.getItem('comentarios')) || [];
-    comentariosGuardados.forEach(m => renderComentario(m));
-
-    function guardarComentario() {
-      const input = document.getElementById('comentarioInput');
-      const texto = input.value.trim();
-      if (!texto) return;
-      comentariosGuardados.push(texto);
-      localStorage.setItem('comentarios', JSON.stringify(comentariosGuardados));
-      renderComentario(texto);
-      input.value = '';
-    }
-
-    function renderComentario(texto) {
-      const p = document.createElement('p');
-      p.textContent = texto;
-      listaComentarios.appendChild(p);
-    }
-  </script>
 </body>
 </html>
+
 
